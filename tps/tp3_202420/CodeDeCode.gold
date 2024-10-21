@@ -22,7 +22,7 @@ procedure main(args:String[]) begin
   
   Alph =  ('a'‥'c')
 	
-	  
+Estados := (0‥9) × {'>', '<', '='} ∪ (0‥9) × (0‥9) ∪ (0‥9) ∪ {"error"}	  
 
   			
 	coder:= Coder.createTransducer(Alph)
