@@ -1,0 +1,34 @@
+using gold.**
+
+procedure main(args:String[]) begin
+	Estados12 = {"start"} ∪ (0‥1) × (0‥1)
+	Input12 = ('a'‥'b')
+	Output12 = Input12
+	inicial12 = "start"
+	Finales12 = Estados12
+	
+	T12 = GDeterministicTransducer(Estados12,Input12,Output12,
+										inicial12,Finales12,transiciones12,
+										imprEstados12,imprFlechas12)
+										
+	GAutomataFrame.show(T12)
+end
+
+function transiciones12(estado,simbolo) begin
+	shift = 'a' - 0
+	if estado = "start" then
+		return ⟨simbolo-shift,0⟩
+	else
+		return ⟨simbolo-shift, (estado[1]+1)%2⟩
+	end
+end
+
+function imprEstados12(estado) begin
+	if estado = "start" then
+		return ""
+	else
+		return Character.toString((estado[0]+estado[1])%2 + 'a')
+	end
+end
+
+imprFlechas12(estado,simbolo) = ""
